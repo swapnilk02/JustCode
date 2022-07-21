@@ -1,7 +1,10 @@
-/**_______________________________
+/**
+ * _____________________________*
  * Copyright (C) 2022, JustCode *
  * All rights reserved.			*
- *______________________________*/
+ * _____________________________*
+ */
+
 
 package com.example.SpringBootMongoDB.service.impl;
 
@@ -14,29 +17,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductServiceImpl implements ProductService{
-	
-	@Autowired
-	private ProductRepository productRepository;
+public class ProductServiceImpl implements ProductService {
 
-	@Autowired
-	private ProductMapper productMapper;
+    @Autowired
+    private ProductRepository productRepository;
 
-	@Override
-	public ProductDTO getProduct(int id) {
-		ProductEntity productEntity = productRepository.findById(id).orElse(null);
-		return productMapper.toDto(productEntity);
-	}
+    @Autowired
+    private ProductMapper productMapper;
 
-	@Override
-		public ProductDTO createProduct(ProductDTO productDTO) {
-			ProductEntity productEntity = new ProductEntity();
-			productEntity.setName(productDTO.getName());
-			productEntity.setPrice(productDTO.getPrice());
-			productEntity.setQuantity(productDTO.getQuantity());
-			ProductEntity productEntitySaved = productRepository.save(productEntity);
+    @Override
+    public ProductDTO getProduct(int id) {
+        ProductEntity productEntity = productRepository.findById(id).orElse(null);
+        return productMapper.toDto(productEntity);
+    }
 
-			return null;
-	}
+    @Override
+    public ProductDTO createProduct(ProductDTO productDTO) {
+        ProductEntity productEntity = productMapper.toEntity(productDTO);
+        ProductEntity productEntitySaved = productRepository.save(productEntity);
+        return productMapper.toDto(productEntitySaved);
+    }
+
+    @Override
+    public void deleteProduct(int id) {
+        ProductEntity productEntity = productRepository.findById(id).orElse(null);
+        productRepository.delete(productEntity);
+    }
 
 }

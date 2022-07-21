@@ -1,15 +1,12 @@
-/**_______________________________
+/**
+ * _____________________________*
  * Copyright (C) 2022, JustCode *
  * All rights reserved.			*
- *______________________________*/
-
+ * _____________________________*
+ */
 package com.example.SpringBootMongoDB.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -18,11 +15,10 @@ import lombok.Setter;
 @Getter
 public class ProductDTO {
 
-	private int id;
-	private String name;
-	private int quantity;
-	private double price;
-
+    private int id;
+    private String name;
+    private int quantity;
+    private double price;
 
 
 }

@@ -1,10 +1,10 @@
-/**_______________________________
+/**
+ * _____________________________*
  * Copyright (C) 2022, JustCode *
  * All rights reserved.			*
- *______________________________*/
-
+ * _____________________________*
+ */
 package com.example.SpringBootMongoDB.mapper;
-
 
 import com.example.SpringBootMongoDB.dto.ProductDTO;
 import com.example.SpringBootMongoDB.entity.ProductEntity;
