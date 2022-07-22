@@ -12,9 +12,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
-
     ProductEntity toEntity(ProductDTO productDTO);
-
     ProductDTO toDto(ProductEntity productEntity);
-
 }
